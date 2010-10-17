@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>${EXECUTABLE_NAME}</string>
+	<key>CFBundleIconFile</key>
+	<string>Jason.icns</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.olivierlabs.${PRODUCT_NAME:identifier}</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>${PRODUCT_NAME}</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>0.1</string>
+	<key>NSMainNibFile</key>
+	<string>MainMenu</string>
+	<key>NSPrincipalClass</key>
+	<string>NSApplication</string>
+	<key>UTExportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>com.netscape.javascript-source</string>
+			</array>
+			<key>UTTypeIdentifier</key>
+			<string>com.olivierlabs.jason.document</string>
+			<key>UTTypeReferenceURL</key>
+			<string>http://json.org</string>
+			<key>UTTypeIconFile</key>
+			<string>Jason Document.icns</string>
+			<key>UTTypeDescription</key>
+			<string>JSON Document</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.mime-type</key>
+				<string>application/json</string>
+				<key>public.filename-extension</key>
+				<array>
+					<string>json</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeName</key>
+			<string>com.olivierlabs.jason.document</string>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>json</string>
+			</array>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
+			<key>CFBundleTypeIconFile</key>
+			<string>Jason Document.icns</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleTypeMIMETypes</key>
+			<array>
+				<string>application/json</string>
+			</array>
+			<key>NSDocumentClass</key>
+			<string>Document</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.olivierlabs.jason.document</string>
+			</array>
+		</dict>
+	</array>
+	<key>SUPublicDSAKeyFile</key>
+	<string>olabsparkle_pub.pem</string>
+	<key>SUFeedURL</key>
+	<string>http://olivierlabs.com/jason/sparkle/appcast.php</string>
+	<key>SUEnableSystemProfiling</key>
+	<true/>
+</dict>
+</plist>
