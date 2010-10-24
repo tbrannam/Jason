@@ -57,7 +57,7 @@
 		}
 	}
 	else if (character == NSCarriageReturnCharacter) {
-		[(DocumentWC *)[self delegate] addRow:self];
+		[(OutlineViewVC *)[self delegate] addRow:self];
 		return;
 	}
 	

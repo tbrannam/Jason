@@ -29,16 +29,13 @@
 
 #import <Cocoa/Cocoa.h>
 
-@class OutlineView;
+@class OutlineViewVC;
+@class TextViewVC;
 
-@interface DocumentWC : NSWindowController <NSTextViewDelegate> {
-	IBOutlet NSScrollView *outlineScrollView;
-	IBOutlet OutlineView *outlineView;
-	IBOutlet NSTableColumn *keyColumn;
-	IBOutlet NSTableColumn *typeColumn;
-	IBOutlet NSTableColumn *valueColumn;
-	IBOutlet NSScrollView *textScrollView;
-	IBOutlet NSTextView *textView;
+@interface DocumentWC : NSWindowController {
+	NSViewController *currentVC;
+	OutlineViewVC *outlineViewVC;
+	TextViewVC *textViewVC;
 	
 	BOOL parseErrorHasBeenShown;
 	
@@ -47,20 +44,7 @@
 	CGFloat outlineViewMaxHeight;
 }
 
-@property NSScrollView *outlineScrollView;
-@property OutlineView *outlineView;
-@property NSTableColumn *keyColumn;
-@property NSTableColumn *typeColumn;
-@property NSTableColumn *valueColumn;
-@property NSScrollView *textScrollView;
-@property NSTextView *textView;
-
-- (IBAction)addRow:(id)sender;
-- (IBAction)deleteRow:(id)sender;
-- (IBAction)changeType:(id)sender;
 - (IBAction)copy:(id)sender;
 - (IBAction)toggleViewTableText:(id)sender;
-
-- (void)switchToTextWithString:(NSString *)string;
 
 @end

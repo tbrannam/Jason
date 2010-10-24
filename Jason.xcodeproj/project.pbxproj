@@ -9,12 +9,16 @@
 /* Begin PBXBuildFile section */
 		1418D026125D61D10040CBB6 /* DocumentWC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1418D025125D61D10040CBB6 /* DocumentWC.m */; };
 		1418D029125D61EB0040CBB6 /* NodeObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 1418D028125D61EB0040CBB6 /* NodeObject.m */; };
+		142FB6811272BEBE00EE4328 /* OutlineView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 142FB6801272BEBE00EE4328 /* OutlineView.xib */; };
+		142FB6881272BF5900EE4328 /* OutlineViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 142FB6871272BF5900EE4328 /* OutlineViewVC.m */; };
+		142FB68A1272BF6600EE4328 /* TextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 142FB6891272BF6600EE4328 /* TextView.xib */; };
 		143303121265A90C0086DD35 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 143303111265A90C0086DD35 /* Credits.html */; };
 		143303211265AA0C0086DD35 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 143303201265AA0C0086DD35 /* Sparkle.framework */; };
 		143303311265ABB20086DD35 /* PreferencesWC.m in Sources */ = {isa = PBXBuildFile; fileRef = 143303301265ABB20086DD35 /* PreferencesWC.m */; };
 		1433033C1265AC370086DD35 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1433033B1265AC370086DD35 /* Preferences.xib */; };
 		145C05C212661CC300D7A8D7 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 143303201265AA0C0086DD35 /* Sparkle.framework */; };
 		145C05F4126626C000D7A8D7 /* olabsparkle_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 145C05F3126626C000D7A8D7 /* olabsparkle_pub.pem */; };
+		147814B912734B35009FA778 /* TextViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 147814B812734B35009FA778 /* TextViewVC.m */; };
 		1495F31B125CEA69008DA431 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E795B5125BB9FE006EC2F6 /* AppDelegate.m */; };
 		14E795B9125BB9FE006EC2F6 /* OpenURLWC.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E795B7125BB9FE006EC2F6 /* OpenURLWC.m */; };
 		14E795BF125BBA38006EC2F6 /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E795BC125BBA38006EC2F6 /* Document.m */; };
@@ -55,12 +59,18 @@
 		1418D025125D61D10040CBB6 /* DocumentWC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DocumentWC.m; path = Document/DocumentWC.m; sourceTree = "<group>"; };
 		1418D027125D61EB0040CBB6 /* NodeObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NodeObject.h; path = Document/NodeObject.h; sourceTree = "<group>"; };
 		1418D028125D61EB0040CBB6 /* NodeObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NodeObject.m; path = Document/NodeObject.m; sourceTree = "<group>"; };
+		142FB67E1272BEB300EE4328 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/OutlineView.xib; sourceTree = "<group>"; };
+		142FB6841272BF1A00EE4328 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/TextView.xib; sourceTree = "<group>"; };
+		142FB6861272BF5900EE4328 /* OutlineViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutlineViewVC.h; path = Document/OutlineViewVC.h; sourceTree = "<group>"; };
+		142FB6871272BF5900EE4328 /* OutlineViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OutlineViewVC.m; path = Document/OutlineViewVC.m; sourceTree = "<group>"; };
 		143302FB1265A4590086DD35 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = English; path = English.lproj/Credits.html; sourceTree = "<group>"; };
 		143303201265AA0C0086DD35 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		1433032F1265ABB20086DD35 /* PreferencesWC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferencesWC.h; path = Preferences/PreferencesWC.h; sourceTree = "<group>"; };
 		143303301265ABB20086DD35 /* PreferencesWC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreferencesWC.m; path = Preferences/PreferencesWC.m; sourceTree = "<group>"; };
 		143303391265AC2D0086DD35 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/Preferences.xib; sourceTree = "<group>"; };
 		145C05F3126626C000D7A8D7 /* olabsparkle_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = olabsparkle_pub.pem; sourceTree = "<group>"; };
+		147814B712734B35009FA778 /* TextViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextViewVC.h; path = Document/TextViewVC.h; sourceTree = "<group>"; };
+		147814B812734B35009FA778 /* TextViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextViewVC.m; path = Document/TextViewVC.m; sourceTree = "<group>"; };
 		14E02A1A11599CCC003F9CB4 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/OpenURL.xib; sourceTree = "<group>"; };
 		14E795B4125BB9FE006EC2F6 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = App/AppDelegate.h; sourceTree = "<group>"; };
 		14E795B5125BB9FE006EC2F6 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = App/AppDelegate.m; sourceTree = "<group>"; };
@@ -148,10 +158,14 @@
 		14E795BA125BBA28006EC2F6 /* Document */ = {
 			isa = PBXGroup;
 			children = (
-				1418D024125D61D10040CBB6 /* DocumentWC.h */,
-				1418D025125D61D10040CBB6 /* DocumentWC.m */,
 				14E795BB125BBA38006EC2F6 /* Document.h */,
 				14E795BC125BBA38006EC2F6 /* Document.m */,
+				1418D024125D61D10040CBB6 /* DocumentWC.h */,
+				1418D025125D61D10040CBB6 /* DocumentWC.m */,
+				142FB6861272BF5900EE4328 /* OutlineViewVC.h */,
+				142FB6871272BF5900EE4328 /* OutlineViewVC.m */,
+				147814B712734B35009FA778 /* TextViewVC.h */,
+				147814B812734B35009FA778 /* TextViewVC.m */,
 				14E795BD125BBA38006EC2F6 /* OutlineView.h */,
 				14E795BE125BBA38006EC2F6 /* OutlineView.m */,
 				1418D027125D61EB0040CBB6 /* NodeObject.h */,
@@ -241,6 +255,8 @@
 				14E795D6125BBABB006EC2F6 /* OpenURL.xib */,
 				143303111265A90C0086DD35 /* Credits.html */,
 				1433033B1265AC370086DD35 /* Preferences.xib */,
+				142FB6801272BEBE00EE4328 /* OutlineView.xib */,
+				142FB6891272BF6600EE4328 /* TextView.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -281,6 +297,9 @@
 /* Begin PBXProject section */
 		2A37F4A9FDCFA73011CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Olivier Labs";
+			};
 			buildConfigurationList = C05733CB08A9546B00998B17 /* Build configuration list for PBXProject "Jason" */;
 			compatibilityVersion = "Xcode 3.1";
 			developmentRegion = English;
@@ -315,6 +334,8 @@
 				143303121265A90C0086DD35 /* Credits.html in Resources */,
 				1433033C1265AC370086DD35 /* Preferences.xib in Resources */,
 				145C05F4126626C000D7A8D7 /* olabsparkle_pub.pem in Resources */,
+				142FB6811272BEBE00EE4328 /* OutlineView.xib in Resources */,
+				142FB68A1272BF6600EE4328 /* TextView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +359,8 @@
 				1418D026125D61D10040CBB6 /* DocumentWC.m in Sources */,
 				1418D029125D61EB0040CBB6 /* NodeObject.m in Sources */,
 				143303311265ABB20086DD35 /* PreferencesWC.m in Sources */,
+				142FB6881272BF5900EE4328 /* OutlineViewVC.m in Sources */,
+				147814B912734B35009FA778 /* TextViewVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,6 +373,22 @@
 				089C1660FE840EACC02AAC07 /* English */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		142FB6801272BEBE00EE4328 /* OutlineView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				142FB67E1272BEB300EE4328 /* English */,
+			);
+			name = OutlineView.xib;
+			sourceTree = "<group>";
+		};
+		142FB6891272BF6600EE4328 /* TextView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				142FB6841272BF1A00EE4328 /* English */,
+			);
+			name = TextView.xib;
 			sourceTree = "<group>";
 		};
 		143303111265A90C0086DD35 /* Credits.html */ = {
@@ -465,6 +504,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = macosx10.6;
 				VALID_ARCHS = "i386 x86_64";
 			};
