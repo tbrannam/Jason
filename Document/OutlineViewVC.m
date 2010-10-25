@@ -66,6 +66,12 @@ static NSNumberFormatter *numberFormatter = nil;
 											 selector:@selector(resizeView:)
 												 name:NSWindowDidResizeNotification
 											   object:[[self view] window]];
+
+	// Insert ourselves between the outline view and its next responder
+	// in the responder chain
+	NSResponder *nextResponder = [outlineView nextResponder];
+	[outlineView setNextResponder:self];
+	[self setNextResponder:nextResponder];
 	
 	[outlineView sizeLastColumnToFit];
 	[self refreshView];

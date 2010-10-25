@@ -39,7 +39,6 @@
 - (void)loadOutlineView;
 - (void)loadTextViewWithString:(NSString *)string;
 - (void)setCurrentVC:(NSViewController *)viewController;
-- (void)resizeOutlineView;
 @end
 
 @implementation DocumentWC

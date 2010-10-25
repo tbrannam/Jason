@@ -45,6 +45,8 @@
 @property NSTableColumn *typeColumn;
 @property NSTableColumn *valueColumn;
 
+- (IBAction)addRow:(id)sender;
+- (IBAction)deleteRow:(id)sender;
 - (void)resizeView:(NSNotification *)notification;
 
 @end
