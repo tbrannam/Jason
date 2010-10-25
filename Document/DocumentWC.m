@@ -177,20 +177,4 @@
 - (void)didPresentErrorWithRecovery:(BOOL)didRecover contextInfo:(void  *)contextInfo {
 }
 
-#pragma mark -
-
-- (void)resizeOutlineView {
-	/*
-	CGFloat usedHeight = [[outlineView headerView] frame].size.height +
-	[outlineView numberOfRows] * ([outlineView rowHeight] + [outlineView intercellSpacing].height);
-	
-	if (usedHeight < outlineViewMaxHeight) {
-		[outlineScrollView setFrameSize:NSMakeSize([outlineScrollView frame].size.width, usedHeight)];
-		[outlineScrollView setFrameOrigin:NSMakePoint([outlineScrollView frame].origin.x,
-													  outlineViewMaxHeight - usedHeight + bottomMargin)];
-		[outlineScrollView setNeedsDisplay:YES];
-	}
-	 */
-}
-
 @end
