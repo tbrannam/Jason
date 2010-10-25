@@ -50,7 +50,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="NSOutlineView" id="177733190">
 								<reference key="NSNextResponder" ref="130040266"/>
-								<int key="NSvFlags">4352</int>
+								<int key="NSvFlags">4370</int>
 								<string key="NSFrameSize">{722, 428}</string>
 								<reference key="NSSuperview" ref="130040266"/>
 								<bool key="NSEnabled">YES</bool>
@@ -639,7 +639,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{338, 108}, {722, 445}}</string>
+					<string>{{207, 108}, {722, 445}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<object class="NSAffineTransform">
 						<bytes key="NSTransformStruct">P4AAAL+AAAAAAAAAw92AAA</bytes>

@@ -68,13 +68,6 @@
 	// Configure the window
 	[[self window] setBackgroundColor:[NSColor whiteColor]];
 
-	/*
-	CGFloat contentViewHeight = [[[self window] contentView] frame].size.height;
-	bottomMargin = [outlineScrollView frame].origin.y;
-	topMargin = contentViewHeight - [outlineScrollView frame].size.height - bottomMargin;
-	outlineViewMaxHeight = contentViewHeight - topMargin - bottomMargin;
-	 */
-	
 	if (doc.parseError) [self loadTextViewWithString:doc.invalidContents];
 	else [self loadOutlineView];
 }
@@ -83,6 +76,9 @@
 	if (! outlineViewVC) outlineViewVC = [OutlineViewVC new];
 	[outlineViewVC setRepresentedObject:[self document]];
 	[self setCurrentVC:outlineViewVC];
+	// We need to send resizeView: so that the scroll view containing the outline view
+	// is possibly shrunk according to its contents
+	[outlineViewVC resizeView:nil];
 }
 
 - (void)loadTextViewWithString:(NSString *)string {

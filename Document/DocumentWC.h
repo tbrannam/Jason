@@ -38,10 +38,6 @@
 	TextViewVC *textViewVC;
 	
 	BOOL parseErrorHasBeenShown;
-	
-	CGFloat topMargin;
-	CGFloat bottomMargin;
-	CGFloat outlineViewMaxHeight;
 }
 
 - (IBAction)copy:(id)sender;

@@ -46,8 +46,6 @@ static NSNumberFormatter *numberFormatter = nil;
 @synthesize typeColumn;
 @synthesize valueColumn;
 
-#pragma mark Lifecycle
-
 + (void)initialize {
 	numberFormatter = [NSNumberFormatter new];
 	[numberFormatter setMaximumFractionDigits:100];
@@ -57,8 +55,18 @@ static NSNumberFormatter *numberFormatter = nil;
 	return [super initWithNibName:@"OutlineView" bundle:nil];
 }
 
+- (void)finalize {
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)loadView {
 	[super loadView];
+	
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(resizeView:)
+												 name:NSWindowDidResizeNotification
+											   object:[[self view] window]];
+	
 	[outlineView sizeLastColumnToFit];
 	[self refreshView];
 }
@@ -71,6 +79,23 @@ static NSNumberFormatter *numberFormatter = nil;
 - (void)refreshView {
 	[outlineView reloadData];
 	[outlineView expandItem:[outlineView itemAtRow:0] expandChildren:YES];	
+}
+
+- (void)resizeView:(NSNotification *)notification {
+	const CGFloat margin = 20.0;
+	const CGFloat doubleMargin = margin + margin;
+	
+	NSSize contentViewSize = [[[[self view] window] contentView] frame].size;
+	CGFloat outlineViewMaxHeight = contentViewSize.height - doubleMargin;
+	CGFloat usedHeight = [[outlineView headerView] frame].size.height +
+	[outlineView numberOfRows] * ([outlineView rowHeight] + [outlineView intercellSpacing].height);
+	
+	if (usedHeight < outlineViewMaxHeight) {
+		[outlineScrollView setFrameSize:NSMakeSize(contentViewSize.width - doubleMargin, usedHeight)];
+		[outlineScrollView setFrameOrigin:NSMakePoint(margin,
+													  outlineViewMaxHeight - usedHeight + margin)];
+		[outlineScrollView setNeedsDisplay:YES];
+	}
 }
 
 #pragma mark -
@@ -337,7 +362,7 @@ objectValueForTableColumn:(NSTableColumn *)tableColumn
 	[outlineView selectRowIndexes:[NSIndexSet indexSetWithIndex:childRow] byExtendingSelection:NO];
 	[outlineView editColumn:columnToEdit row:childRow withEvent:nil select:YES];
 	
-	//[self resizeOutlineView];
+	[self resizeView:nil];
 	
 	Document *doc = [self representedObject];
 	[doc updateChangeCount:NSChangeDone];
@@ -368,7 +393,7 @@ objectValueForTableColumn:(NSTableColumn *)tableColumn
 		}
 	}
 	
-	//[self resizeOutlineView];
+	[self resizeView:nil];
 	
 	// If only one row has been deleted, select the row that was below it
 	if ([selectedIndexSet count] == 1) {

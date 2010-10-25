@@ -45,5 +45,6 @@
 @property NSTableColumn *typeColumn;
 @property NSTableColumn *valueColumn;
 
+- (void)resizeView:(NSNotification *)notification;
 
 @end
