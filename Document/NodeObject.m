@@ -113,7 +113,7 @@
 			case kNodeObjectTypeString: newValue = @""; break;
 			case kNodeObjectTypeNumber: newValue = [NSDecimalNumber numberWithInt:0]; break;
 			case kNodeObjectTypeBool: newValue = (id)kCFBooleanFalse; break;
-			default: kNodeObjectTypeNull; break;
+			default: newValue = [NSNull null]; break;
 		}
 	}
 
