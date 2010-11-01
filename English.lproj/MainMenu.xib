@@ -443,6 +443,14 @@
 									<reference key="NSOnImage" ref="1033313550"/>
 									<reference key="NSMixedImage" ref="310636482"/>
 								</object>
+								<object class="NSMenuItem" id="506789846">
+									<reference key="NSMenu" ref="789758025"/>
+									<string key="NSTitle">Edit Value Column Only</string>
+									<string key="NSKeyEquiv"/>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="1033313550"/>
+									<reference key="NSMixedImage" ref="310636482"/>
+								</object>
 								<object class="NSMenuItem" id="414926827">
 									<reference key="NSMenu" ref="789758025"/>
 									<bool key="NSIsDisabled">YES</bool>
@@ -1055,6 +1063,14 @@
 					</object>
 					<int key="connectionID">496</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">toggleEditValueColumnOnly:</string>
+						<reference key="source" ref="1014"/>
+						<reference key="destination" ref="506789846"/>
+					</object>
+					<int key="connectionID">499</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -1268,6 +1284,7 @@
 							<reference ref="594816936"/>
 							<reference ref="220761555"/>
 							<reference ref="193398632"/>
+							<reference ref="506789846"/>
 						</object>
 						<reference key="parent" ref="952259628"/>
 					</object>
@@ -1623,6 +1640,11 @@
 						<reference key="object" ref="284926450"/>
 						<reference key="parent" ref="134606478"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">497</int>
+						<reference key="object" ref="506789846"/>
+						<reference key="parent" ref="789758025"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -1745,6 +1767,7 @@
 					<string>491.IBEditorWindowLastContentRect</string>
 					<string>491.IBPluginDependency</string>
 					<string>492.IBPluginDependency</string>
+					<string>497.IBPluginDependency</string>
 					<string>5.IBPluginDependency</string>
 					<string>5.ImportedFromIB2</string>
 					<string>56.IBPluginDependency</string>
@@ -1835,7 +1858,7 @@
 					<integer value="1"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
-					<string>{{498, 472}, {182, 263}}</string>
+					<string>{{498, 452}, {256, 283}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>{{197, 734}, {243, 243}}</string>
@@ -1901,6 +1924,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
@@ -1954,7 +1978,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">496</int>
+			<int key="maxID">499</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -2096,9 +2120,11 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>addRow:</string>
 							<string>deleteRow:</string>
+							<string>toggleEditValueColumnOnly:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 						</object>
@@ -2109,6 +2135,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>addRow:</string>
 							<string>deleteRow:</string>
+							<string>toggleEditValueColumnOnly:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -2118,6 +2145,10 @@
 							</object>
 							<object class="IBActionInfo">
 								<string key="name">deleteRow:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">toggleEditValueColumnOnly:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 						</object>

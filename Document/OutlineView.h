@@ -29,7 +29,19 @@
 
 #import <Cocoa/Cocoa.h>
 
+#define kKeyColumnIndex 0
+#define kValueColumnIndex 2
+
+@protocol OutlineViewDelegate;
+
 @interface OutlineView : NSOutlineView {
+	NSInteger lastFocusedColumn;
+	id <OutlineViewDelegate> delegate;
 }
+
+@property (readonly) NSInteger lastFocusedColumn;
+
+- (void)setDelegate:(id <OutlineViewDelegate>)theDelegate;
+- (id <OutlineViewDelegate>)delegate;
 
 @end

@@ -29,10 +29,12 @@
 
 #import "OutlineViewVC.h"
 #import "OutlineView.h"
+#import "OutlineViewDelegate.h"
 #import "NodeObject.h"
 #import "Document.h"
 
 @interface OutlineViewVC ()
+- (BOOL)outlineView:(NSOutlineView *)theView shouldEditTableColumn:(NSTableColumn *)tableColumn item:(id)item;
 - (void)refreshView;
 @end
 
@@ -62,11 +64,37 @@ static NSNumberFormatter *numberFormatter = nil;
 - (void)loadView {
 	[super loadView];
 	
+	// We want to be notified when the window resizes because the outline
+	// view changes its size according to its contents
 	[[NSNotificationCenter defaultCenter] addObserver:self
 											 selector:@selector(resizeView:)
 												 name:NSWindowDidResizeNotification
 											   object:[[self view] window]];
-
+	
+	// Prepare cells for the value column
+	buttonCell = [NSButtonCell new];
+	[buttonCell setTitle:@""];
+	[buttonCell setControlSize:NSSmallControlSize];
+	[buttonCell setButtonType:NSSwitchButton];
+	
+	numberCell = [[valueColumn dataCell] copy];
+	[numberCell setFormatter:numberFormatter];
+	[numberCell setEditable:YES];
+	
+	disabledKeyCell = [[keyColumn dataCell] copy];
+	[disabledKeyCell setEnabled:NO];
+	[disabledKeyCell setEditable:NO];
+	[(NSTextFieldCell *)disabledKeyCell setTextColor:[NSColor darkGrayColor]];
+	
+	disabledTypeCell = [[typeColumn dataCell] copy];
+	[disabledTypeCell setEnabled:NO];
+	[disabledTypeCell setEditable:NO];
+	
+	disabledValueCell = [[valueColumn dataCell] copy];
+	[disabledValueCell setEnabled:NO];
+	[disabledValueCell setEditable:NO];
+	[(NSTextFieldCell *)disabledValueCell setTextColor:[NSColor darkGrayColor]];
+	
 	// Insert ourselves between the outline view and its next responder
 	// in the responder chain
 	NSResponder *nextResponder = [outlineView nextResponder];
@@ -109,43 +137,30 @@ static NSNumberFormatter *numberFormatter = nil;
 
 - (NSCell *)outlineView:(NSOutlineView *)theOutlineView dataCellForTableColumn:(NSTableColumn *)tableColumn item:(id)item {
 	NSTreeNode *currentNode = item;
-	NSTreeNode *parentNode = [currentNode parentNode];
 	NodeObject *currentObject = [currentNode representedObject];
+
+	NSCell *cell = nil;
 	
-	// Non-editable items are greyed out:
-	// * non-editable keys: root, array items
-	BOOL shouldGreyOut = (tableColumn == keyColumn &&
-						  (! parentNode || [(NodeObject *)[parentNode representedObject] type] != kNodeObjectTypeDictionary));
-	
-	// * non-editable values: collections, null
-	shouldGreyOut |= (tableColumn == valueColumn &&
-					  ([currentObject typeIsCollection] || currentObject.type == kNodeObjectTypeNull));
-	
-	if (shouldGreyOut) {
-		NSTextFieldCell *cell = [NSTextFieldCell new];
-		[cell setFont:[NSFont systemFontOfSize:[NSFont systemFontSizeForControlSize:NSSmallControlSize]]];
-		[cell setTextColor:[NSColor grayColor]];
-		return cell;
-	}
 	// Boolean values use a checkbox cell
-	else if (tableColumn == valueColumn && currentObject.type == kNodeObjectTypeBool) {
-		NSButtonCell *cell = [NSButtonCell new];
-		[cell setTitle:@""];
-		[cell setControlSize:NSSmallControlSize];
-		[cell setButtonType:NSSwitchButton];
-		return cell;
+	if (tableColumn == valueColumn && currentObject && currentObject.type == kNodeObjectTypeBool) {
+		cell = buttonCell;
 	}
 	// Number values need a number formatter
-	else if (tableColumn == valueColumn && currentObject.type == kNodeObjectTypeNumber) {
-		NSTextFieldCell *cell = [NSTextFieldCell new];
-		[cell setFormatter:numberFormatter];
-		[cell setEditable:YES];
-		[cell setFont:[NSFont systemFontOfSize:[NSFont systemFontSizeForControlSize:NSSmallControlSize]]];
-		return cell;
+	else if (tableColumn == valueColumn && currentObject && currentObject.type == kNodeObjectTypeNumber) {
+		cell = numberCell;
+	}	
+	// Default cell
+	else {
+		if ([self outlineView:theOutlineView shouldEditTableColumn:tableColumn item:item]) {
+			cell = [tableColumn dataCellForRow:[outlineView rowForItem:item]];	
+		}
+		else {
+			if (tableColumn == keyColumn) cell = disabledKeyCell;
+			else if (tableColumn == typeColumn) cell = disabledTypeCell;
+			else if (tableColumn == valueColumn) cell = disabledValueCell;
+		}
 	}
 	
-	// Default cell
-	NSCell *cell = [tableColumn dataCellForRow:[outlineView rowForItem:item]];
 	return cell;
 }
 
@@ -156,10 +171,10 @@ static NSNumberFormatter *numberFormatter = nil;
 	if (tableColumn == keyColumn) {
 		NSTreeNode *parentNode = [currentNode parentNode];
 		NodeObject *parentObject = [parentNode representedObject];
-		shouldEdit = parentObject && parentObject.type == kNodeObjectTypeDictionary;
+		shouldEdit = (! editValueColumnOnly) && parentObject && parentObject.type == kNodeObjectTypeDictionary;
 	}
 	else if (tableColumn == typeColumn) {
-		shouldEdit = YES;	
+		shouldEdit = ! editValueColumnOnly;	
 	}
 	else if (tableColumn == valueColumn) {
 		NodeObjectType type = [(NodeObject *)[currentNode representedObject] type];
@@ -362,7 +377,7 @@ objectValueForTableColumn:(NSTableColumn *)tableColumn
 	[outlineView reloadItem:parentNode reloadChildren:YES];
 	[outlineView expandItem:parentNode];
 	
-	NSInteger columnToEdit = (parentObject.type == kNodeObjectTypeDictionary) ? 0 : 2;
+	NSInteger columnToEdit = (parentObject.type == kNodeObjectTypeDictionary && (! editValueColumnOnly)) ? 0 : 2;
 	NSInteger childRow = row + [[parentNode childNodes] count];
 	
 	[outlineView selectRowIndexes:[NSIndexSet indexSetWithIndex:childRow] byExtendingSelection:NO];
@@ -410,6 +425,128 @@ objectValueForTableColumn:(NSTableColumn *)tableColumn
 
 - (IBAction)changeType:(id)sender {
 	[self changeTypeTo:[sender tag]];
+}
+
+- (IBAction)toggleEditValueColumnOnly:(id)sender {
+	editValueColumnOnly = ! editValueColumnOnly;
+	[outlineView setNeedsDisplay:YES];
+}
+
+#pragma mark -
+#pragma mark User Interface Validation
+
+- (BOOL)validateUserInterfaceItem:(id <NSValidatedUserInterfaceItem>)item {
+	if ([item action] == @selector(toggleEditValueColumnOnly:)) {
+		NSMenuItem *menuItem = item;
+		
+		[menuItem setTitle:(editValueColumnOnly) ? @"Edit All Columns" : @"Edit Value Column Only"];
+	}
+	
+	return YES;
+}
+
+#pragma mark -
+#pragma mark Control Text Editing Delegate
+
+- (BOOL)handleKeyDown:(NSEvent *)event {
+	unichar character = [[event characters] characterAtIndex:0];
+	
+	/*
+	 if (character == NSTabCharacter) {
+	 NSLog(@"OutlineView -keyDown: Tab; focused column = %ld", [self focusedColumn]);
+	 // If no column is focused, let's try to focus the first
+	 // editable column, if any
+	 if ([self focusedColumn] == -1) {
+	 // Edit the key column if it is editable
+	 NSTableColumn *keyCol = [[self tableColumns] objectAtIndex:kKeyColumnIndex];
+	 NSTableColumn *valueCol = [[self tableColumns] objectAtIndex:kValueColumnIndex];
+	 NSInteger row = [self selectedRow];
+	 id item = [self itemAtRow:row];
+	 
+	 if ([[self delegate] outlineView:self shouldEditTableColumn:keyCol item:item]) {
+	 [self editColumn:kKeyColumnIndex row:row withEvent:nil select:YES];				
+	 return;
+	 }
+	 // Edit the value column if it is editable
+	 else if ([[self delegate] outlineView:self shouldEditTableColumn:valueCol item:item]) {
+	 [self editColumn:kValueColumnIndex row:row withEvent:nil select:YES];
+	 return;
+	 }
+	 }
+	 // If the value column is currently focused, try to focus the first editable column of the
+	 // next editable line, if any
+	 else if ([self focusedColumn] == kValueColumnIndex) {
+	 NSLog(@"value column was focused");
+	 for (NSInteger row = [self selectedRow] + 1; row < [self numberOfRows]; ++row) {
+	 id item = [self itemAtRow:row];
+	 
+	 for (NSUInteger col = 0; col < 3; ++col) {
+	 NSTableColumn *column = [[self tableColumns] objectAtIndex:col];
+	 
+	 if ([[self delegate] outlineView:self shouldEditTableColumn:column item:item]) {
+	 [self editColumn:col row:row withEvent:nil select:YES];
+	 return;
+	 }
+	 }
+	 ++row;
+	 }
+	 }
+	 }
+	 else */
+	if (character == NSCarriageReturnCharacter) {
+		[self addRow:self];
+		return YES;
+	}
+	
+	// It's not a key event we want to capture, so let the
+	// outline view deal with it
+	return NO;
+}
+
+- (BOOL)control:(NSControl *)control textView:(NSTextView *)textView doCommandBySelector:(SEL)command {
+	// We want to modify the behaviour of Tab (should skip to the next row(s), first focusable column if any)...
+	if (command == @selector(insertTab:) && outlineView.lastFocusedColumn == kValueColumnIndex) {
+		NSUInteger rowCount = [outlineView numberOfRows];
+		NSUInteger colCount = [[outlineView tableColumns] count];
+		
+		for (NSUInteger row = [outlineView selectedRow] + 1; row < rowCount; ++row) {
+			for (NSUInteger columnIndex = 0; columnIndex < colCount; ++columnIndex) {
+				NSCell *cell = [outlineView preparedCellAtColumn:columnIndex row:row];
+				
+				if ([outlineView shouldFocusCell:cell atColumn:columnIndex row:row]) {
+					[outlineView selectRowIndexes:[NSIndexSet indexSetWithIndex:row] byExtendingSelection:NO];
+					[outlineView editColumn:columnIndex row:row withEvent:nil select:YES];				
+					return YES;
+				}
+			}
+		}
+	}
+	// ...and Backtab (should skip to the previous focusable column, possibly at a previous row)
+	else if (command == @selector(insertBacktab:)) {
+		NSUInteger lastColumn = [[outlineView tableColumns] count] - 1;
+//		NSInteger columnIndex = outlineView.lastFocusedColumn - 1;
+		NSInteger columnIndex = [outlineView focusedColumn] - 1;
+		
+		NSLog(@"back tabbing, first candidate = %ld", columnIndex);
+		
+		for (NSInteger row = [outlineView selectedRow]; row >= 0; --row) {
+			while (columnIndex >= 0) {
+				NSCell *cell = [outlineView preparedCellAtColumn:columnIndex row:row];
+				
+				if ([outlineView shouldFocusCell:cell atColumn:columnIndex row:row]) {
+					[outlineView selectRowIndexes:[NSIndexSet indexSetWithIndex:row] byExtendingSelection:NO];
+					[outlineView editColumn:columnIndex row:row withEvent:nil select:YES];				
+					return YES;
+				}
+				--columnIndex;
+			}
+			
+			columnIndex = lastColumn;
+		}		
+	}
+
+	
+	return NO;
 }
 
 @end

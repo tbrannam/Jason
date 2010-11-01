@@ -71,6 +71,7 @@
 		145C05F3126626C000D7A8D7 /* olabsparkle_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = olabsparkle_pub.pem; sourceTree = "<group>"; };
 		147814B712734B35009FA778 /* TextViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextViewVC.h; path = Document/TextViewVC.h; sourceTree = "<group>"; };
 		147814B812734B35009FA778 /* TextViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextViewVC.m; path = Document/TextViewVC.m; sourceTree = "<group>"; };
+		14C8EE28127EE872007C5DBF /* OutlineViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutlineViewDelegate.h; path = Document/OutlineViewDelegate.h; sourceTree = "<group>"; };
 		14E02A1A11599CCC003F9CB4 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/OpenURL.xib; sourceTree = "<group>"; };
 		14E795B4125BB9FE006EC2F6 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = App/AppDelegate.h; sourceTree = "<group>"; };
 		14E795B5125BB9FE006EC2F6 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = App/AppDelegate.m; sourceTree = "<group>"; };
@@ -158,6 +159,7 @@
 		14E795BA125BBA28006EC2F6 /* Document */ = {
 			isa = PBXGroup;
 			children = (
+				14C8EE28127EE872007C5DBF /* OutlineViewDelegate.h */,
 				14E795BB125BBA38006EC2F6 /* Document.h */,
 				14E795BC125BBA38006EC2F6 /* Document.m */,
 				1418D024125D61D10040CBB6 /* DocumentWC.h */,

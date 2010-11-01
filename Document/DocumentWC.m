@@ -68,7 +68,7 @@
 	[[self window] setBackgroundColor:[NSColor whiteColor]];
 
 	if (doc.parseError) [self loadTextViewWithString:doc.invalidContents];
-	else [self loadOutlineView];
+	else [self loadOutlineView];	
 }
 
 - (void)loadOutlineView {
@@ -148,7 +148,7 @@
     if ([item action] == @selector(toggleViewTableText:)) {
 		NSMenuItem *menuItem = item;
 		
-		[menuItem setTitle:outlineViewVC && currentVC == outlineViewVC ?
+		[menuItem setTitle:(outlineViewVC && currentVC == outlineViewVC) ?
 		 NSLocalizedString(@"View as Text", @"") :
 		 NSLocalizedString(@"View as Table", @"")];
     }

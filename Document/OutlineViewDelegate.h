@@ -28,36 +28,8 @@
  */
 
 #import <Cocoa/Cocoa.h>
-#import "OutlineViewDelegate.h"
 
-@class OutlineView;
 
-@interface OutlineViewVC : NSViewController <OutlineViewDelegate, NSOutlineViewDataSource> {
-	IBOutlet NSScrollView *outlineScrollView;
-	IBOutlet OutlineView *outlineView;
-	IBOutlet NSTableColumn *keyColumn;
-	IBOutlet NSTableColumn *typeColumn;
-	IBOutlet NSTableColumn *valueColumn;
-
-	// Custom cells
-	NSButtonCell *buttonCell; // for boolean values
-	NSTextFieldCell *numberCell;
-	NSCell *disabledKeyCell;
-	NSCell *disabledTypeCell;
-	NSCell *disabledValueCell;
-	
-	BOOL editValueColumnOnly;
-}
-
-@property NSScrollView *outlineScrollView;
-@property OutlineView *outlineView;
-@property NSTableColumn *keyColumn;
-@property NSTableColumn *typeColumn;
-@property NSTableColumn *valueColumn;
-
-- (IBAction)addRow:(id)sender;
-- (IBAction)deleteRow:(id)sender;
-- (IBAction)toggleEditValueColumnOnly:(id)sender;
-- (void)resizeView:(NSNotification *)notification;
-
+@protocol OutlineViewDelegate <NSOutlineViewDelegate>
+- (BOOL)handleKeyDown:(NSEvent *)event;
 @end
