@@ -13,11 +13,8 @@
 		142FB6881272BF5900EE4328 /* OutlineViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 142FB6871272BF5900EE4328 /* OutlineViewVC.m */; };
 		142FB68A1272BF6600EE4328 /* TextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 142FB6891272BF6600EE4328 /* TextView.xib */; };
 		143303121265A90C0086DD35 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 143303111265A90C0086DD35 /* Credits.html */; };
-		143303211265AA0C0086DD35 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 143303201265AA0C0086DD35 /* Sparkle.framework */; };
 		143303311265ABB20086DD35 /* PreferencesWC.m in Sources */ = {isa = PBXBuildFile; fileRef = 143303301265ABB20086DD35 /* PreferencesWC.m */; };
 		1433033C1265AC370086DD35 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1433033B1265AC370086DD35 /* Preferences.xib */; };
-		145C05C212661CC300D7A8D7 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 143303201265AA0C0086DD35 /* Sparkle.framework */; };
-		145C05F4126626C000D7A8D7 /* olabsparkle_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 145C05F3126626C000D7A8D7 /* olabsparkle_pub.pem */; };
 		147814B912734B35009FA778 /* TextViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 147814B812734B35009FA778 /* TextViewVC.m */; };
 		1495F31B125CEA69008DA431 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E795B5125BB9FE006EC2F6 /* AppDelegate.m */; };
 		14E795B9125BB9FE006EC2F6 /* OpenURLWC.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E795B7125BB9FE006EC2F6 /* OpenURLWC.m */; };
@@ -46,7 +43,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				145C05C212661CC300D7A8D7 /* Sparkle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,11 +61,9 @@
 		142FB6861272BF5900EE4328 /* OutlineViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutlineViewVC.h; path = Document/OutlineViewVC.h; sourceTree = "<group>"; };
 		142FB6871272BF5900EE4328 /* OutlineViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OutlineViewVC.m; path = Document/OutlineViewVC.m; sourceTree = "<group>"; };
 		143302FB1265A4590086DD35 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = English; path = English.lproj/Credits.html; sourceTree = "<group>"; };
-		143303201265AA0C0086DD35 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		1433032F1265ABB20086DD35 /* PreferencesWC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferencesWC.h; path = Preferences/PreferencesWC.h; sourceTree = "<group>"; };
 		143303301265ABB20086DD35 /* PreferencesWC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreferencesWC.m; path = Preferences/PreferencesWC.m; sourceTree = "<group>"; };
 		143303391265AC2D0086DD35 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/Preferences.xib; sourceTree = "<group>"; };
-		145C05F3126626C000D7A8D7 /* olabsparkle_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = olabsparkle_pub.pem; sourceTree = "<group>"; };
 		147814B712734B35009FA778 /* TextViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextViewVC.h; path = Document/TextViewVC.h; sourceTree = "<group>"; };
 		147814B812734B35009FA778 /* TextViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextViewVC.m; path = Document/TextViewVC.m; sourceTree = "<group>"; };
 		14C8EE28127EE872007C5DBF /* OutlineViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutlineViewDelegate.h; path = Document/OutlineViewDelegate.h; sourceTree = "<group>"; };
@@ -111,7 +105,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */,
-				143303211265AA0C0086DD35 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,7 +114,6 @@
 		1058C7A6FEA54F5311CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				143303201265AA0C0086DD35 /* Sparkle.framework */,
 				1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */,
 			);
 			name = "Linked Frameworks";
@@ -247,7 +239,6 @@
 		2A37F4B8FDCFA73011CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				145C05F3126626C000D7A8D7 /* olabsparkle_pub.pem */,
 				14E79636125C1AC8006EC2F6 /* Images */,
 				14E795FA125C151D006EC2F6 /* Licence.txt */,
 				8D15AC360486D014006FF6A4 /* Info.plist */,
@@ -336,7 +327,6 @@
 				14E79633125C1733006EC2F6 /* Jason Document.icns in Resources */,
 				143303121265A90C0086DD35 /* Credits.html in Resources */,
 				1433033C1265AC370086DD35 /* Preferences.xib in Resources */,
-				145C05F4126626C000D7A8D7 /* olabsparkle_pub.pem in Resources */,
 				142FB6811272BEBE00EE4328 /* OutlineView.xib in Resources */,
 				142FB68A1272BF6600EE4328 /* TextView.xib in Resources */,
 			);
