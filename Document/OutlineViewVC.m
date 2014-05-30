@@ -437,7 +437,7 @@ objectValueForTableColumn:(NSTableColumn *)tableColumn
 
 - (BOOL)validateUserInterfaceItem:(id <NSValidatedUserInterfaceItem>)item {
 	if ([item action] == @selector(toggleEditValueColumnOnly:)) {
-		NSMenuItem *menuItem = item;
+		NSMenuItem *menuItem = (NSMenuItem *)item;
 		
 		[menuItem setTitle:(editValueColumnOnly) ? @"Edit All Columns" : @"Edit Value Column Only"];
 	}
