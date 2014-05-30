@@ -38,6 +38,9 @@
 	return self;
 }
 
+- (void)didPresentErrorWithRecovery:(BOOL)someBool contextInfo:(void *)contextInfo {
+}
+
 - (IBAction)open:(id)sender {
 	NSError *error = nil;
 	NSURL *url = [NSURL URLWithString:[urlField stringValue]];
@@ -80,7 +83,5 @@
 	[self close];
 }
 
-- (void)didPresentErrorWithRecovery:(BOOL)contextInfo:(void *)contextInfo {
-}
 
 @end

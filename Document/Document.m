@@ -150,11 +150,11 @@
 #pragma mark Read and write
 
 - (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError **)outError {
-	parseError = nil;
+	NSError *error = nil;
 	NSString *strData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 	SBJsonParser *parser = [SBJsonParser new];
-    id parsedContents = [parser objectWithString:strData error:&parseError];
-	
+    id parsedContents = [parser objectWithString:strData error:&error];
+	parseError = error;
 	// If there was a parse error, keep the (invalid) string in stringContents...
 	if (parseError) invalidContents = strData;
 	// ...otherwise, we have a valid object to use as contents

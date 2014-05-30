@@ -57,7 +57,7 @@ static NSNumberFormatter *numberFormatter = nil;
 	return [super initWithNibName:@"OutlineView" bundle:nil];
 }
 
-- (void)finalize {
+- (void)dealloc {
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -437,7 +437,7 @@ objectValueForTableColumn:(NSTableColumn *)tableColumn
 
 - (BOOL)validateUserInterfaceItem:(id <NSValidatedUserInterfaceItem>)item {
 	if ([item action] == @selector(toggleEditValueColumnOnly:)) {
-		NSMenuItem *menuItem = item;
+		NSMenuItem *menuItem = (NSMenuItem *)item;
 		
 		[menuItem setTitle:(editValueColumnOnly) ? @"Edit All Columns" : @"Edit Value Column Only"];
 	}

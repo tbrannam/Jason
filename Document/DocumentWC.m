@@ -146,7 +146,7 @@
 
 - (BOOL)validateUserInterfaceItem:(id <NSValidatedUserInterfaceItem>)item {
     if ([item action] == @selector(toggleViewTableText:)) {
-		NSMenuItem *menuItem = item;
+		NSMenuItem *menuItem = (NSMenuItem *)item;
 		
 		[menuItem setTitle:(outlineViewVC && currentVC == outlineViewVC) ?
 		 NSLocalizedString(@"View as Text", @"") :
