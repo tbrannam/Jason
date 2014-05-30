@@ -57,7 +57,7 @@ static NSNumberFormatter *numberFormatter = nil;
 	return [super initWithNibName:@"OutlineView" bundle:nil];
 }
 
-- (void)finalize {
+- (void)dealloc {
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
