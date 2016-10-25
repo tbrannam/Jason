@@ -94,7 +94,7 @@
 	else [superview addSubview:subview];
 	
 	// Resize the subview
-	const CGFloat margin = 20.0;
+	const CGFloat margin = 0.0;
 	const CGFloat doubleMargin = margin + margin;
 
 	NSRect subviewFrame = NSMakeRect(margin, // x

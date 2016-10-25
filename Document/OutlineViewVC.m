@@ -84,7 +84,7 @@ static NSNumberFormatter *numberFormatter = nil;
 	disabledKeyCell = [[keyColumn dataCell] copy];
 	[disabledKeyCell setEnabled:NO];
 	[disabledKeyCell setEditable:NO];
-	[(NSTextFieldCell *)disabledKeyCell setTextColor:[NSColor darkGrayColor]];
+	//[(NSTextFieldCell *)disabledKeyCell setTextColor:[NSColor darkGrayColor]];
 	
 	disabledTypeCell = [[typeColumn dataCell] copy];
 	[disabledTypeCell setEnabled:NO];
@@ -93,7 +93,7 @@ static NSNumberFormatter *numberFormatter = nil;
 	disabledValueCell = [[valueColumn dataCell] copy];
 	[disabledValueCell setEnabled:NO];
 	[disabledValueCell setEditable:NO];
-	[(NSTextFieldCell *)disabledValueCell setTextColor:[NSColor darkGrayColor]];
+	//[(NSTextFieldCell *)disabledValueCell setTextColor:[NSColor darkGrayColor]];
 	
 	// Insert ourselves between the outline view and its next responder
 	// in the responder chain
@@ -116,7 +116,7 @@ static NSNumberFormatter *numberFormatter = nil;
 }
 
 - (void)resizeView:(NSNotification *)notification {
-	const CGFloat margin = 20.0;
+	const CGFloat margin = 0.0;
 	const CGFloat doubleMargin = margin + margin;
 	
 	NSSize contentViewSize = [[[[self view] window] contentView] frame].size;
@@ -439,7 +439,7 @@ objectValueForTableColumn:(NSTableColumn *)tableColumn
 	if ([item action] == @selector(toggleEditValueColumnOnly:)) {
 		NSMenuItem *menuItem = (NSMenuItem *)item;
 		
-		[menuItem setTitle:(editValueColumnOnly) ? @"Edit All Columns" : @"Edit Value Column Only"];
+        [menuItem setTitle:(editValueColumnOnly) ? NSLocalizedString(@"Edit All Columns",nil) : NSLocalizedString(@"Edit Value Column Only", nil)];
 	}
 	
 	return YES;
