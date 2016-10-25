@@ -18,7 +18,7 @@
 				<string>application/json</string>
 			</array>
 			<key>CFBundleTypeName</key>
-			<string>com.olivierlabs.jason.document</string>
+			<string>com.casualpenguin.jason.document</string>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>LSHandlerRank</key>
@@ -69,7 +69,7 @@
 			<key>UTTypeIconFile</key>
 			<string>Jason Document.icns</string>
 			<key>UTTypeIdentifier</key>
-			<string>com.olivierlabs.jason.document</string>
+			<string>com.casualpenguin.jason.document</string>
 			<key>UTTypeReferenceURL</key>
 			<string>http://json.org</string>
 			<key>UTTypeTagSpecification</key>
