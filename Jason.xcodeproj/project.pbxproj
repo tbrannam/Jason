@@ -50,7 +50,6 @@
 
 /* Begin PBXFileReference section */
 		089C1660FE840EACC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		0A4183721938322900FB18D6 /* Jason.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Jason.pch; path = Support/Jason.pch; sourceTree = "<group>"; };
 		1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		1418D024125D61D10040CBB6 /* DocumentWC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DocumentWC.h; path = Document/DocumentWC.h; sourceTree = "<group>"; };
 		1418D025125D61D10040CBB6 /* DocumentWC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DocumentWC.m; path = Document/DocumentWC.m; sourceTree = "<group>"; };
@@ -231,7 +230,6 @@
 			isa = PBXGroup;
 			children = (
 				14E795D2125BBAAC006EC2F6 /* main.m */,
-				0A4183721938322900FB18D6 /* Jason.pch */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
